@@ -1,5 +1,5 @@
-# This is a repository for testing and learning staffs about machine learning using Python...
-I'm not going to share this repo with my friends, students, collages and so on.
+# This is a repository for testing and learning staffs utilise Python for machine learning...
+I'm not going to share this repository with my friends, students, colleagues, or anybody else.
 
 
 ## ML Libs:
