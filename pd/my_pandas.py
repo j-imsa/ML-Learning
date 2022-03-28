@@ -1,5 +1,4 @@
 import os
-
 import numpy as np
 import pandas as pd
 
@@ -34,11 +33,15 @@ class MyPandas:
         )
         print(df)
 
-    def load_data(self):
+    @staticmethod
+    def load_data():
         # df = pd.read_...
         absolute_dataset_path = os.path.abspath('pd/HousePrice.csv')
         df = pd.read_csv(absolute_dataset_path)
+        return df
 
+    @staticmethod
+    def show_loaded_data(df):
         # print(df.head())
         # print(df.head(10))
         # print(df[:10]) # based on python
@@ -48,9 +51,9 @@ class MyPandas:
         # print(df.Area)
         # print(df['Area'])
 
-        '''
+        """
         https://www.tgju.org/profile/price_cad
-        '''
+        """
         tmp = df.copy()
         tmp['Price(CAD)'] = tmp['Price'] * 212400
         # print(tmp.head())
@@ -58,6 +61,9 @@ class MyPandas:
         # print(tmp.shape)
 
         print(tmp.describe())  # describe all numerical values
+
+    def missing_values(self, df):
+        pass
 
 
 if __name__ == '__main__':
@@ -67,4 +73,6 @@ if __name__ == '__main__':
     pandas_obj = MyPandas()
     # pandas_obj.show_version()
     # pandas_obj.create_dataframe()
-    pandas_obj.load_data()
+    loaded_data = pandas_obj.load_data()
+    # pandas_obj.show_loaded_data(loaded_data)
+    pandas_obj.missing_values(loaded_data)
