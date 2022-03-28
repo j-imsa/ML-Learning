@@ -15,10 +15,18 @@ _Really? Is it true?_
 
 
 ### Why Pandas?
- 
+- powerful community
+- powerful features for lite datasets
 
 ### Pandas Value Propositions:
 
 
 ### Pandas Competitors:
+- pyspark (for bigdata)
+- ms excel
+- R language
+- Polars
+- Dask
+- Vaex
+
 
