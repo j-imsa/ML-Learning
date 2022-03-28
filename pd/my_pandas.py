@@ -63,6 +63,23 @@ class MyPandas:
         print(tmp.describe())  # describe all numerical values
 
     def missing_values(self, df):
+        # print(df.notnull().head())
+        # print(df.isnull().sum())  # find how many nulls do you have?!
+        # print(df[df['Address'].isnull()])  # find all nulls data
+
+        # df['Address'].fillna(value='Nakoja-Abad', inplace=True)  # fill null positions
+        # print(df.isnull().sum())
+
+        df.dropna(how='any', inplace=True)  # drop rows, when find any null in it
+        print(df.shape)
+
+    def string_methods(self, df):
+        pass
+
+    def rename_columns(self, df):
+        pass
+
+    def data_type(self, df):
         pass
 
 
@@ -75,4 +92,7 @@ if __name__ == '__main__':
     # pandas_obj.create_dataframe()
     loaded_data = pandas_obj.load_data()
     # pandas_obj.show_loaded_data(loaded_data)
-    pandas_obj.missing_values(loaded_data)
+    # pandas_obj.missing_values(loaded_data)
+    pandas_obj.string_methods(loaded_data)
+    pandas_obj.rename_columns(loaded_data)
+    pandas_obj.data_type(loaded_data)
