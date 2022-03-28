@@ -1,11 +1,3 @@
-# https://pandas.pydata.org/
-# https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf
-# https://pypi.org/project/pandas/
-# Latest version: 1.4.1
-# pip install pandas
-# pip install pandas==1.4.1
-# Pandas = Panel + Data ?
-
 import numpy as np
 import pandas as pd
 
