@@ -1,3 +1,5 @@
+import os
+
 import numpy as np
 import pandas as pd
 
@@ -32,11 +34,37 @@ class MyPandas:
         )
         print(df)
 
+    def load_data(self):
+        # df = pd.read_...
+        absolute_dataset_path = os.path.abspath('pd/HousePrice.csv')
+        df = pd.read_csv(absolute_dataset_path)
+
+        # print(df.head())
+        # print(df.head(10))
+        # print(df[:10]) # based on python
+
+        # print(df.tail())
+
+        # print(df.Area)
+        # print(df['Area'])
+
+        '''
+        https://www.tgju.org/profile/price_cad
+        '''
+        tmp = df.copy()
+        tmp['Price(CAD)'] = tmp['Price'] * 212400
+        # print(tmp.head())
+
+        # print(tmp.shape)
+
+        print(tmp.describe())  # describe all numerical values
+
 
 if __name__ == '__main__':
     numpy_obj = MyTinyNumpy()
-    numpy_obj.show_version()
+    # numpy_obj.show_version()
 
     pandas_obj = MyPandas()
-    pandas_obj.show_version()
-    pandas_obj.create_dataframe()
+    # pandas_obj.show_version()
+    # pandas_obj.create_dataframe()
+    pandas_obj.load_data()
