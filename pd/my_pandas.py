@@ -1,6 +1,7 @@
 import os
 import numpy as np
 import pandas as pd
+from pandas.api.types import is_numeric_dtype
 
 
 class MyTinyNumpy:
@@ -202,7 +203,24 @@ class MyPandas:
         print(df.head())
 
     def working_on_samples(self, df):
-        pass
+        df_obj = df.select_dtypes(['object'])
+        df[df_obj.columns] = df_obj.apply(lambda x: x.str.strip())
+        df[df_obj.columns] = df_obj.apply(lambda x: x.str.replace(',', ''))
+
+        print(df[pd.to_numeric(df['Area']) > 3600])
+        df = df[~(pd.to_numeric(df['Area']) > 3600)]
+        print(len(df.index))
+
+        df = df[~(pd.isnull(df['Address']))]
+
+        df1 = df[df.Room == 2].sample(n=10)
+        df2 = df[df.Room == 4].sample(n=10)
+        df_all = pd.concat([df1, df2])
+        df_all = df_all.sample(frac=1)
+        print(df_all)
+
+        print(is_numeric_dtype(df['Price']))
+        print(is_numeric_dtype(df['Address']))
 
 
 if __name__ == '__main__':
