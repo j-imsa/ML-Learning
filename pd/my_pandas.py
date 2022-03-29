@@ -169,10 +169,16 @@ class MyPandas:
         # print(df.sample(n=5, random_state=20))
         # print(df.sample(frac=0.05, random_state=20))
 
-        print(df.Parking.unique())
-        print(df.Parking.map({True: 'TT', False: 'FF'}).head(20))
-        print(pd.get_dummies(df.Parking))
+        # print(df.Parking.unique())
+        # print(df.Parking.map({True: 'TT', False: 'FF'}).head(20))
+        # print(pd.get_dummies(df.Parking))
 
+        print(df.duplicated().sum())
+        print(df.duplicated().count())
+        print(df[df.duplicated()])
+        print(df.iloc[[54, 55]])
+        tmp = df.drop_duplicates()
+        print(tmp.iloc[[54, 55]])
 
     def working_on_indexes(self, df):
         print(df.index)
