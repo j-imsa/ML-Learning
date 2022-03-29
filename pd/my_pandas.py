@@ -74,7 +74,11 @@ class MyPandas:
         print(df.shape)
 
     def string_methods(self, df):
-        pass
+        tmp = df['Address'].replace('Pardis', 'ShahreYar', inplace=False)
+        print(tmp[:10])
+
+        tmp = df['Address'].str.lower()
+        print(tmp.head(10))
 
     def rename_columns(self, df):
         pass
