@@ -112,6 +112,9 @@ class MyPandas:
         # print(tmp['Parking'].tail().cat.codes)
         print(tmp['Parking'].cat.categories)
 
+    def apply_method(self, num):
+        return num + 10
+
     def working_on_some_methods(self, df):
         # print(df.shape)
         # print(df.columns.tolist())
@@ -173,12 +176,18 @@ class MyPandas:
         # print(df.Parking.map({True: 'TT', False: 'FF'}).head(20))
         # print(pd.get_dummies(df.Parking))
 
-        print(df.duplicated().sum())
-        print(df.duplicated().count())
-        print(df[df.duplicated()])
-        print(df.iloc[[54, 55]])
-        tmp = df.drop_duplicates()
-        print(tmp.iloc[[54, 55]])
+        # print(df.duplicated().sum())
+        # print(df.duplicated().count())
+        # print(df[df.duplicated()])
+        # print(df.iloc[[54, 55]])
+        # tmp = df.drop_duplicates()
+        # print(tmp.iloc[[54, 55]])
+
+        df['new_val'] = df.Room.apply(self.apply_method)
+        print(df.head())
+
+        df['np_val'] = np.where(df.Parking, 'Parking Darad!', 'Parking Nadarad!')
+        print(df.head(20))
 
     def working_on_indexes(self, df):
         print(df.index)
@@ -191,6 +200,9 @@ class MyPandas:
 
         df.index.name = 'index'
         print(df.head())
+
+    def working_on_samples(self, df):
+        pass
 
 
 if __name__ == '__main__':
@@ -206,5 +218,6 @@ if __name__ == '__main__':
     # pandas_obj.string_methods(loaded_data)
     # pandas_obj.rename_columns(loaded_data)
     # pandas_obj.data_type(loaded_data)
-    pandas_obj.working_on_some_methods(loaded_data)
+    # pandas_obj.working_on_some_methods(loaded_data)
     # pandas_obj.working_on_indexes(loaded_data)
+    pandas_obj.working_on_samples(loaded_data)
