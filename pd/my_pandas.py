@@ -81,7 +81,19 @@ class MyPandas:
         print(tmp.head(10))
 
     def rename_columns(self, df):
-        pass
+        tmp = df.copy()
+        tmp.rename(
+            columns={
+                'Address': 'add',
+                'Price': 'Gheymat'
+            },
+            inplace=True
+        )
+        print(df.head())
+        print(tmp.head())
+
+        tmp.columns = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+        print(tmp.head())
 
     def data_type(self, df):
         pass
@@ -97,6 +109,6 @@ if __name__ == '__main__':
     loaded_data = pandas_obj.load_data()
     # pandas_obj.show_loaded_data(loaded_data)
     # pandas_obj.missing_values(loaded_data)
-    pandas_obj.string_methods(loaded_data)
+    # pandas_obj.string_methods(loaded_data)
     pandas_obj.rename_columns(loaded_data)
     pandas_obj.data_type(loaded_data)
