@@ -110,6 +110,28 @@ class MyPandas:
         # print(tmp['Parking'].tail().cat.codes)
         print(tmp['Parking'].cat.categories)
 
+    def working_on_some_methods(self, df):
+        print(df.shape)
+        print(df.columns.tolist())
+        print(df.describe())
+        print(df.info())
+        print(df.memory_usage(deep=True))
+        print(df['Price'].max())
+        print(df['Area'].min())
+        print(df['Room'].mean())
+
+        print(df['Price'].argmax())
+        print(df.iloc[df['Price'].argmax()])
+
+        print(df['Room'].value_counts())
+        print(df['Room'].value_counts(dropna=False))
+        print(df['Room'].value_counts(dropna=False, normalize=True))
+        print(df['Room'].value_counts(dropna=False, normalize=True).index)
+        print(df['Room'].value_counts(dropna=False, normalize=True).values)
+
+        print(df['Room'].nunique())
+        print(df['Room'].unique())
+
 
 if __name__ == '__main__':
     numpy_obj = MyTinyNumpy()
@@ -123,4 +145,5 @@ if __name__ == '__main__':
     # pandas_obj.missing_values(loaded_data)
     # pandas_obj.string_methods(loaded_data)
     # pandas_obj.rename_columns(loaded_data)
-    pandas_obj.data_type(loaded_data)
+    # pandas_obj.data_type(loaded_data)
+    pandas_obj.working_on_some_methods(loaded_data)
