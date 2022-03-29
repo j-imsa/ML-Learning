@@ -137,12 +137,18 @@ class MyPandas:
         # print(df['Room'].nunique())
         # print(df['Room'].unique())
 
-        print(df[df['Room'] > 4])
+        # print(df[df['Room'] > 4])
         # print(df[(df['Room'] > 4) & (df['Price'] < 300000000)])
         # print(df[df['Room'].isin([0, 5])])
         # print(df[df['Room'].isin([0, 5])]['Area'])
 
+        # print(df.groupby('Address').Room.mean())
+        # print(df.groupby('Address').Room.min())
+        # print(df.groupby('Address').Room.max())
+        # print(df.groupby('Address')['Room'].agg(['count', 'max', 'min', 'mean']))
+        # print(df.groupby('Address').mean())
 
+        df.groupby('Address').mean().plot(kind='bar')
 
     def working_on_indexes(self, df):
         print(df.index)
