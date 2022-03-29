@@ -151,8 +151,12 @@ class MyPandas:
         # MatPlotLib
         # df.groupby('Address').mean().plot(kind='bar')
 
-        for index, row in df.iterrows():
-            print(f'{index} -> {row.Room}')
+        # for index, row in df.iterrows():
+        #     print(f'{index} -> {row.Room}')
+
+        print(df[['Room', 'Price']].head())
+        print(df.drop(['Room', 'Parking'], axis=1, inplace=False).head())  # axis 1 for columns
+        print(df.drop([2, 3, 4], axis=0, inplace=False).head())  # axis 0 for rows
 
     def working_on_indexes(self, df):
         print(df.index)
