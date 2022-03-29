@@ -14,6 +14,9 @@ class MyTinyNumpy:
 class MyPandas:
     def __init__(self):
         self.message = f'Pandas Current Running Version: {pd.__version__}'
+        self.absolute_dataset_path = os.path.abspath('pd/HousePrice.csv')
+        self.absolute_dataset_path = \
+            self.absolute_dataset_path[:(len(self.absolute_dataset_path) - len('HousePrice.csv'))]
 
     def show_version(self):
         print(self.message)
@@ -33,11 +36,10 @@ class MyPandas:
         )
         print(df)
 
-    @staticmethod
-    def load_data():
+    def load_data(self):
         # df = pd.read_...
-        absolute_dataset_path = os.path.abspath('pd/HousePrice.csv')
-        df = pd.read_csv(absolute_dataset_path)
+        # absolute_dataset_path = os.path.abspath('pd/HousePrice.csv')
+        df = pd.read_csv(self.absolute_dataset_path + 'HousePrice.csv')
         return df
 
     @staticmethod
@@ -154,9 +156,14 @@ class MyPandas:
         # for index, row in df.iterrows():
         #     print(f'{index} -> {row.Room}')
 
-        print(df[['Room', 'Price']].head())
-        print(df.drop(['Room', 'Parking'], axis=1, inplace=False).head())  # axis 1 for columns
-        print(df.drop([2, 3, 4], axis=0, inplace=False).head())  # axis 0 for rows
+        # print(df[['Room', 'Price']].head())
+        # print(df.drop(['Room', 'Parking'], axis=1, inplace=False).head())  # axis 1 for columns
+        # print(df.drop([2, 3, 4], axis=0, inplace=False).head())  # axis 0 for rows
+
+        df.to_csv(self.absolute_dataset_path + 'df.csv', header=True, index=False)
+        df.to_excel(self.absolute_dataset_path + 'df.xlsx', header=True,
+                    index=False)  # needs to install openpyxl module
+        df.to_pickle(self.absolute_dataset_path + 'df.pkl')
 
     def working_on_indexes(self, df):
         print(df.index)
