@@ -148,7 +148,11 @@ class MyPandas:
         # print(df.groupby('Address')['Room'].agg(['count', 'max', 'min', 'mean']))
         # print(df.groupby('Address').mean())
 
-        df.groupby('Address').mean().plot(kind='bar')
+        # MatPlotLib
+        # df.groupby('Address').mean().plot(kind='bar')
+
+        for index, row in df.iterrows():
+            print(f'{index} -> {row.Room}')
 
     def working_on_indexes(self, df):
         print(df.index)
