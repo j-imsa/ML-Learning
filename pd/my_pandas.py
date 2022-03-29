@@ -96,7 +96,19 @@ class MyPandas:
         print(tmp.head())
 
     def data_type(self, df):
-        pass
+        # print(df.dtypes)  # strings in DataFrame are object! such as String Class in JAVA <3
+
+        # df['Room'] = df['Room'].astype(float)  # int to float
+        # print(df.dtypes)
+        # print(df.head())
+
+        # print(df['Room'].value_counts())
+        tmp = df.copy()
+        # print(tmp.tail())
+        tmp['Parking'] = df['Parking'].astype('category')
+        # print(tmp.dtypes)
+        # print(tmp['Parking'].tail().cat.codes)
+        print(tmp['Parking'].cat.categories)
 
 
 if __name__ == '__main__':
@@ -110,5 +122,5 @@ if __name__ == '__main__':
     # pandas_obj.show_loaded_data(loaded_data)
     # pandas_obj.missing_values(loaded_data)
     # pandas_obj.string_methods(loaded_data)
-    pandas_obj.rename_columns(loaded_data)
+    # pandas_obj.rename_columns(loaded_data)
     pandas_obj.data_type(loaded_data)
