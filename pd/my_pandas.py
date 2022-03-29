@@ -132,6 +132,18 @@ class MyPandas:
         print(df['Room'].nunique())
         print(df['Room'].unique())
 
+    def working_on_indexes(self, df):
+        print(df.index)
+
+        df.index += 1
+        print(df.index)
+        print(df.head())
+        print(df['Price'].argmax())
+        print(df.iloc[df['Price'].argmax()])
+
+        df.index.name = 'index'
+        print(df.head())
+
 
 if __name__ == '__main__':
     numpy_obj = MyTinyNumpy()
@@ -146,4 +158,5 @@ if __name__ == '__main__':
     # pandas_obj.string_methods(loaded_data)
     # pandas_obj.rename_columns(loaded_data)
     # pandas_obj.data_type(loaded_data)
-    pandas_obj.working_on_some_methods(loaded_data)
+    # pandas_obj.working_on_some_methods(loaded_data)
+    pandas_obj.working_on_indexes(loaded_data)
