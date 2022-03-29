@@ -165,9 +165,14 @@ class MyPandas:
         #             index=False)  # needs to install openpyxl module
         # df.to_pickle(self.absolute_dataset_path + 'df.pkl')
 
-        print(df.sample(5))
-        print(df.sample(n=5, random_state=20))
-        print(df.sample(frac=0.05, random_state=20))
+        # print(df.sample(5))
+        # print(df.sample(n=5, random_state=20))
+        # print(df.sample(frac=0.05, random_state=20))
+
+        print(df.Parking.unique())
+        print(df.Parking.map({True: 'TT', False: 'FF'}).head(20))
+        print(pd.get_dummies(df.Parking))
+
 
     def working_on_indexes(self, df):
         print(df.index)
