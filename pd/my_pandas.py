@@ -111,7 +111,7 @@ class MyPandas:
         print(tmp['Parking'].cat.categories)
 
     def working_on_some_methods(self, df):
-        print(df.shape)
+        # print(df.shape)
         # print(df.columns.tolist())
         # print(df.describe())
         # print(df.info())
@@ -136,6 +136,13 @@ class MyPandas:
 
         # print(df['Room'].nunique())
         # print(df['Room'].unique())
+
+        print(df[df['Room'] > 4])
+        # print(df[(df['Room'] > 4) & (df['Price'] < 300000000)])
+        # print(df[df['Room'].isin([0, 5])])
+        # print(df[df['Room'].isin([0, 5])]['Area'])
+
+
 
     def working_on_indexes(self, df):
         print(df.index)
