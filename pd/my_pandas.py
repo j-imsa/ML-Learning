@@ -160,10 +160,14 @@ class MyPandas:
         # print(df.drop(['Room', 'Parking'], axis=1, inplace=False).head())  # axis 1 for columns
         # print(df.drop([2, 3, 4], axis=0, inplace=False).head())  # axis 0 for rows
 
-        df.to_csv(self.absolute_dataset_path + 'df.csv', header=True, index=False)
-        df.to_excel(self.absolute_dataset_path + 'df.xlsx', header=True,
-                    index=False)  # needs to install openpyxl module
-        df.to_pickle(self.absolute_dataset_path + 'df.pkl')
+        # df.to_csv(self.absolute_dataset_path + 'df.csv', header=True, index=False)
+        # df.to_excel(self.absolute_dataset_path + 'df.xlsx', header=True,
+        #             index=False)  # needs to install openpyxl module
+        # df.to_pickle(self.absolute_dataset_path + 'df.pkl')
+
+        print(df.sample(5))
+        print(df.sample(n=5, random_state=20))
+        print(df.sample(frac=0.05, random_state=20))
 
     def working_on_indexes(self, df):
         print(df.index)
