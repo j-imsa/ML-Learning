@@ -10,6 +10,10 @@ def python_assignment_03_q1(df):
     print(tmp[new_order_list].head())
 
 
+def python_assignment_03_q2(df):
+    pass
+
+
 if __name__ == '__main__':
     # df = pd.read_csv('../pd/HousePrice.csv')
     os.system(
@@ -17,8 +21,13 @@ if __name__ == '__main__':
         '-financial-year-provisional/Download-data/annual-enterprise-survey-2020-financial-year-provisional-size'
         '-bands-csv.csv -O sample-data.csv')
     df = pd.read_csv('sample-data.csv')
-    python_assignment_03_q1(df)
-    # python_assignment_03_q2()
+    # python_assignment_03_q1(df)
+
+    df = pd.DataFrame([['aab', 'a', 'a', 'b'],
+                       ['ear', 'e', 'a', 'r'],
+                       ['bb', 'b', 'b']])
+    python_assignment_03_q2(df)
+
     # python_assignment_03_q3()
     # python_assignment_03_q4()
     # python_assignment_03_q5()
