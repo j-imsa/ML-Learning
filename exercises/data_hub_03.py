@@ -1,13 +1,23 @@
+import os
+
 import numpy as np
 import pandas as pd
 
 
-def python_assignment_03_q1():
-    pass
+def python_assignment_03_q1(df):
+    tmp = df.copy()
+    new_order_list = tmp.columns[::-1].tolist()
+    print(tmp[new_order_list].head())
 
 
 if __name__ == '__main__':
-    python_assignment_03_q1()
+    # df = pd.read_csv('../pd/HousePrice.csv')
+    os.system(
+        'wget -c https://www.stats.govt.nz/assets/Uploads/Annual-enterprise-survey/Annual-enterprise-survey-2020'
+        '-financial-year-provisional/Download-data/annual-enterprise-survey-2020-financial-year-provisional-size'
+        '-bands-csv.csv -O sample-data.csv')
+    df = pd.read_csv('sample-data.csv')
+    python_assignment_03_q1(df)
     # python_assignment_03_q2()
     # python_assignment_03_q3()
     # python_assignment_03_q4()
