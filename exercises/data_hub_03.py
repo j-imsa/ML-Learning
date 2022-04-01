@@ -29,6 +29,8 @@ def python_assignment_03_q2(df):
 def python_assignment_03_q3(df):
     print(df.tail())
     tmp = df.iloc[::-1]
+    tmp.reset_index(drop=True, inplace=True)
+    # print(tmp.index)
     print(tmp.head())
 
 
