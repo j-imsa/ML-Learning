@@ -141,6 +141,25 @@ def python_assignment_03_q8():
           'speed, doesn\'t take up too much disc space, and doesn\'t require any unpacking when loaded back into RAM.')
 
 
+def applier(row):
+    tmp = ''
+    for i in row:
+        tmp += i
+    return tmp
+
+
+def python_assignment_03_q9():
+    df = pd.DataFrame([['a', 'e', 'h'],
+                       ['b', 'f', 'i'],
+                       ['c', 'g', 'j']])
+    # df.columns = ['name1', 'name2', 'name3', 'combination']
+    df.columns = ['name1', 'name2', 'name3']
+
+    df['combination'] = df.apply(applier, axis=1)
+
+    print(df.head())
+
+
 if __name__ == '__main__':
     # df = pd.read_csv('../pd/HousePrice.csv')
     # os.system(
@@ -160,6 +179,6 @@ if __name__ == '__main__':
     # python_assignment_03_q5()
     # python_assignment_03_q6()
     # python_assignment_03_q7()
-    python_assignment_03_q8()
-    # python_assignment_03_q9()
+    # python_assignment_03_q8()
+    python_assignment_03_q9()
     # python_assignment_03_q10()
