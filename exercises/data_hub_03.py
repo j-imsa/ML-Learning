@@ -160,6 +160,23 @@ def python_assignment_03_q9():
     print(df.head())
 
 
+def python_assignment_03_q10():
+    print('Pivot allows you to reshape dataframes')
+
+    df = pd.DataFrame(
+        {
+            'year': [1990, 2020, 2020, 2021, 2020],
+            'value': [10, 20, 30, 10, 30],
+            'unit': ['usd', 'cad', 'cad', 'cad', 'usd'],
+        }
+    )
+    print(df.head())
+
+    # tmp = df.pivot(index='year', columns=['unit', 'value'], values='value')
+    tmp = df.pivot_table(index='year', columns='unit', values='value')
+    print(tmp.head())
+
+
 if __name__ == '__main__':
     # df = pd.read_csv('../pd/HousePrice.csv')
     # os.system(
@@ -180,5 +197,5 @@ if __name__ == '__main__':
     # python_assignment_03_q6()
     # python_assignment_03_q7()
     # python_assignment_03_q8()
-    python_assignment_03_q9()
-    # python_assignment_03_q10()
+    # python_assignment_03_q9()
+    python_assignment_03_q10()
