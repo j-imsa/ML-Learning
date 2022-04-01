@@ -1,4 +1,5 @@
 import os
+import time
 
 import numpy as np
 import pandas as pd
@@ -34,6 +35,32 @@ def python_assignment_03_q3(df):
     print(tmp.head())
 
 
+def python_assignment_03_q4(df):
+    """
+    I believe the best approach is to:
+    1. Read documentation regarding iteration algorithms used in libraries.
+    2. Avoiding the usage of libraries since they have certain side effects, such as requiring resources to be loaded.
+    3. Use of Python low-level structures to implement the iteration mechanism
+    """
+
+    tic = time.perf_counter()
+    df_dict = df.to_dict()
+    for key, val in df_dict.items():
+        tmp = f'{key} -> {val}'
+    toc = time.perf_counter()
+    print(f'Finished in {toc - tic:0.4f} seconds by Dict')
+
+    tic = time.perf_counter()
+    for key, val in df.iterrows():
+        tmp = f'{key} -> {val}'
+    toc = time.perf_counter()
+    print(f'Finished in {toc - tic:0.4f} seconds by DataFrame')
+
+    # My output:
+    # Finished in 0.0578 seconds by Dict
+    # Finished in 3.6781 seconds by DataFrame
+
+
 if __name__ == '__main__':
     # df = pd.read_csv('../pd/HousePrice.csv')
     # os.system(
@@ -48,8 +75,8 @@ if __name__ == '__main__':
     #                    ['bb', 'b', 'b']])
     # python_assignment_03_q2(df)
 
-    python_assignment_03_q3(df)
-    # python_assignment_03_q4()
+    # python_assignment_03_q3(df)
+    python_assignment_03_q4(df)
     # python_assignment_03_q5()
     # python_assignment_03_q6()
     # python_assignment_03_q7()
