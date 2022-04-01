@@ -133,6 +133,14 @@ def python_assignment_03_q7():
     print('ok...')
 
 
+def python_assignment_03_q8():
+    print('This question reminds me of an experience! How? Typically, I utilise CSV or other simple file formats, '
+          'and if I am confronted with an IO issue, I will inquire and conduct research on best practises, '
+          'benchmarks, and so on.')
+    print('Also, I discovered the \'feather\' format to be a great choice for storing data because it has a fast I/O '
+          'speed, doesn\'t take up too much disc space, and doesn\'t require any unpacking when loaded back into RAM.')
+
+
 if __name__ == '__main__':
     # df = pd.read_csv('../pd/HousePrice.csv')
     # os.system(
@@ -151,7 +159,7 @@ if __name__ == '__main__':
     # python_assignment_03_q4(df)
     # python_assignment_03_q5()
     # python_assignment_03_q6()
-    python_assignment_03_q7()
-    # python_assignment_03_q8()
+    # python_assignment_03_q7()
+    python_assignment_03_q8()
     # python_assignment_03_q9()
     # python_assignment_03_q10()
