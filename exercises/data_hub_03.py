@@ -61,6 +61,49 @@ def python_assignment_03_q4(df):
     # Finished in 3.6781 seconds by DataFrame
 
 
+from numpy import array
+
+
+def split_sequence(sequence, n_steps):
+    X, y = list(), list()
+    for i in range(len(sequence)):
+        # find the end of this pattern
+        end_ix = i + n_steps
+        # check if we are beyond the sequence
+        if end_ix > len(sequence) - 1:
+            break
+        # gather input and output parts of the pattern
+        seq_x, seq_y = sequence[i:end_ix], sequence[end_ix]
+        X.append(seq_x)
+        y.append(seq_y)
+    return array(X), array(y)
+
+
+def my_spliter(df, n):
+    lstX, lstY = [], []
+
+
+def python_assignment_03_q5():
+    # define input sequence
+    raw_seq = [10, 20, 30, 40, 50, 60, 70, 80, 90]
+    a, b = split_sequence(raw_seq, 8)
+    print(a)
+    print(b)
+
+    """The split sequence_function divides a 1D-list to the first, a 2D-list into n groups, and then removes n count 
+    items from the first of the 1D-list. For the DataFrame, I'll return a list of dataframes grouped by n, 
+    and a dataframe with no n first element. """
+
+    df = pd.DataFrame([
+        [1, 2, 3],
+        ['a', 'b', 'c'],
+        ['الف', 'ب', 'ج']
+    ])
+    x, y = my_spliter(df, 2)
+    print(x)
+    print(y)
+
+
 if __name__ == '__main__':
     # df = pd.read_csv('../pd/HousePrice.csv')
     # os.system(
@@ -76,8 +119,8 @@ if __name__ == '__main__':
     # python_assignment_03_q2(df)
 
     # python_assignment_03_q3(df)
-    python_assignment_03_q4(df)
-    # python_assignment_03_q5()
+    # python_assignment_03_q4(df)
+    python_assignment_03_q5()
     # python_assignment_03_q6()
     # python_assignment_03_q7()
     # python_assignment_03_q8()
