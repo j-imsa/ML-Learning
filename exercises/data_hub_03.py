@@ -122,6 +122,17 @@ def python_assignment_03_q6():
     print(df.shape)
 
 
+def python_assignment_03_q7():
+    path = '/tmp/sampledatainsurance.xlsx'
+    df = pd.read_excel(path, sheet_name='PolicyData')
+
+    for i in range(5):
+        tmp = df.sample(frac=0.2)  # where did you say 'without repetition'? :)
+        tmp.to_excel(f'/tmp/test/tmp{i + 1}.xlsx')
+
+    print('ok...')
+
+
 if __name__ == '__main__':
     # df = pd.read_csv('../pd/HousePrice.csv')
     # os.system(
@@ -139,8 +150,8 @@ if __name__ == '__main__':
     # python_assignment_03_q3(df)
     # python_assignment_03_q4(df)
     # python_assignment_03_q5()
-    python_assignment_03_q6()
-    # python_assignment_03_q7()
+    # python_assignment_03_q6()
+    python_assignment_03_q7()
     # python_assignment_03_q8()
     # python_assignment_03_q9()
     # python_assignment_03_q10()
