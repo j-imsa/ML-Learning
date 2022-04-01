@@ -1,5 +1,6 @@
 import os
 import time
+from os import listdir
 
 import numpy as np
 import pandas as pd
@@ -104,6 +105,23 @@ def python_assignment_03_q5():
     print(y)
 
 
+def python_assignment_03_q6():
+    path = '/tmp'
+    excel_files = []
+    for i in listdir(path):
+        if i[-4:] == 'xlsx':
+            excel_files.append(path + os.path.sep + i)
+
+    df = pd.DataFrame()
+    for file in excel_files:
+        tmp = pd.read_excel(file, sheet_name='PolicyData')
+        print(tmp.shape)
+        df = pd.concat([df, tmp])
+
+    print(df.head())
+    print(df.shape)
+
+
 if __name__ == '__main__':
     # df = pd.read_csv('../pd/HousePrice.csv')
     # os.system(
@@ -120,8 +138,8 @@ if __name__ == '__main__':
 
     # python_assignment_03_q3(df)
     # python_assignment_03_q4(df)
-    python_assignment_03_q5()
-    # python_assignment_03_q6()
+    # python_assignment_03_q5()
+    python_assignment_03_q6()
     # python_assignment_03_q7()
     # python_assignment_03_q8()
     # python_assignment_03_q9()
