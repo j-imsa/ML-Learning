@@ -60,3 +60,14 @@ print(np.linspace(1, 5, num=3))
 print(np.linspace(1, 5, num=19))
 print(np.random.random(5))
 print(np.random.random(5) * 10)
+
+# numpy\'s cool functions
+arr = np.random.random(12).reshape(4, 3)
+print(arr)
+print(np.max(arr, axis=0))  # axis 0 means column
+print(np.max(arr, axis=1))  # axis 1 means row
+print(np.argmax(arr))
+print(np.min(arr, axis=1))
+print(np.mean(arr, axis=1))
+print(np.median(arr))
+print(np.sum(arr))
