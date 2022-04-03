@@ -31,3 +31,17 @@ print(arr)
 arr = np.arange(1, 21)
 arr[5:10] = -1
 print(arr)
+
+# Update dimensions
+arr = arr.reshape(2, 10)  # n * m ==TRUE== array_size
+arr = arr.reshape(2, 5, 2)  # n * m * h ==TRUE== array_size
+# arr = arr.reshape(len(arr),)
+
+print(arr.ndim)
+print(len(arr))
+print(arr.size)
+print(arr.shape)
+
+a = arr.reshape(2, 5)
+print(a.shape[0])
+print(a.shape[1])
