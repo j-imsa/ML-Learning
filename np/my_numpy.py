@@ -45,3 +45,18 @@ print(arr.shape)
 a = arr.reshape(2, 5)
 print(a.shape[0])
 print(a.shape[1])
+
+# List to Array
+lst = [[1, 2, 3], [4, 5, 6]]
+arr = np.asarray(lst)
+print(arr)
+
+# Array with default values
+print(np.zeros((3, 4), dtype='int32'))
+print(np.zeros((3, 4), dtype=np.float64))
+print(np.ones((3, 4)))
+print(np.eye(3))
+print(np.linspace(1, 5, num=3))
+print(np.linspace(1, 5, num=19))
+print(np.random.random(5))
+print(np.random.random(5) * 10)
