@@ -71,3 +71,12 @@ print(np.min(arr, axis=1))
 print(np.mean(arr, axis=1))
 print(np.median(arr))
 print(np.sum(arr))
+
+# index
+arr = np.random.random(12).reshape(4, 3)
+print(arr)
+# arr[n,m] => n row , m column
+print(arr[1, 2])
+print(arr[1:, :2])
+for item in arr.flat:
+    print(item)
